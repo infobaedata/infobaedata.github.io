@@ -8,14 +8,14 @@
     width: 100px;
     height: 100px;
     background: #F0F0F0;
-    border: 6px solid #707070;
+    border: 2px solid #707070;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 14px;
 }
 
 .g-cabeza:hover {
-    border: 6px solid #D8C19E;
+    border: 2px solid #D8C19E;
     background: #F4EEE2;
 }
 
