@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="candidatos.css">
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Candidatos Senadores Nacionales</title>
+</head>
+
+<body>
+
+
+<div class="candidatos-container">
+	<div class="row">
+		<div id="ml"></div>
+		<div id="gs"></div>
+		<div id="mt"></div>
+		<div id="rv"></div>
+	</div>
+</div>
+
+
+<script>
+	if (window.location.href.indexOf('ML')== -1) {
+		document.getElementById('ml').innerHTML += '<div class="col-xs-6 col-sm-4"><a target="_blank" href="https://www.infobae.com/infobae-data/2019/07/23/15-preguntas-para-matias-lammens/" class="g-candidato Lammens"><div class="g-cabeza"><img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/02085550/Matias-Lammens-transparente.png"></div><h4>Matías Lammens</h4><p>Frente de Todos</p></a></div>';
+	}
+	if (window.location.href.indexOf('GS')== -1) {
+		document.getElementById('gs').innerHTML += '<div class="col-xs-6 col-sm-4"><a target="_blank" href="https://www.infobae.com/infobae-data/2019/07/23/15-preguntas-para-gabriel-solano/" class="g-candidato Solano"><div class="g-cabeza"><img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/02085621/Gabriel-Solano-transparente.png"></div><h4>Gabriel Solano</h4><p>FIT- Unidad</p></a></div>';
+	}
+	if (window.location.href.indexOf('MT')== -1) {
+		if (window.location.href.indexOf('RV')> -1) {
+			document.getElementById('mt').innerHTML += '<div class="col-xs-12 col-sm-4"><a target="_blank" href="https://www.infobae.com/infobae-data/2019/07/23/15-preguntas-para-matias-tombolini/" class="g-candidato Tombolini"><div class="g-cabeza"><img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/02085557/Matias-Tombolini-transparente.png"></div><h4>Matías Tombolini</h4><p>Consenso Federal</p></a></div>';
+		} else {
+			document.getElementById('mt').innerHTML += '<div class="col-xs-6 col-sm-4">	<a target="_blank" href="https://www.infobae.com/infobae-data/2019/07/23/15-preguntas-para-matias-tombolini/" class="g-candidato Tombolini"><div class="g-cabeza"><img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/02085557/Matias-Tombolini-transparente.png"></div><h4>Matías Tombolini</h4><p>Consenso Federal</p></a></div>';
+		}
+
+	}
+	if (window.location.href.indexOf('RV')== -1) {
+		document.getElementById('rv').innerHTML += '<div class="col-xs-12 col-sm-4"><a target="_blank" href="https://www.infobae.com/infobae-data/2019/07/23/15-preguntas-para-roberto-valerstein" class="g-candidato Valerstein"><div class="g-cabeza"><img src="https://s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/08/02094540/Especial-Candidatos-Jefe-de-Gobierno-Roberto-Valerstein.png"></div><h4>Roberto Valerstein</h4><p>Frente Despertar</p></a></div>';
+	}
+</script>
+
+</body>
+</html>
