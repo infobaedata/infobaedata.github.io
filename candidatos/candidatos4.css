@@ -1,0 +1,54 @@
+.candidatos-container {
+    max-width: 700px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.g-cabeza {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: #F0F0F0;
+    border: 2px solid #707070;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 14px;
+}
+
+.g-cabeza:hover {
+    border: 2px solid #D8C19E;
+    background: #F4EEE2;
+}
+
+.g-cabeza img {
+    position: absolute;
+    top: 5px;
+}
+a img {
+    border: none;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+a:visited, a:active {
+    color: #9e9e9e;
+}
+a, a:hover, a:focus, a:link {
+    text-decoration: none;
+    color: #474b4a;
+}
+
+a.g-candidato:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+h1, h2, h3, h4 {
+    margin: 0;
+    text-align: center;
+}
+p {
+    margin: 0;
+    text-align: center;
+    font-size: 9px;
+}
