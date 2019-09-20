@@ -12,14 +12,12 @@ var datos_filtrados;     // g_data filtrada segun aglomerado y hogar
 
 
 function update_data(aglomerado_sel,hogar_sel) {
-  console.log("update data..." + aglomerado_sel + hogar_sel);
+  console.log("update data..." + aglomerado_sel + "-" + hogar_sel);
   datos_filtrados = g_data.filter(d => (d.cod_aglomerado == aglomerado_sel && d.hogar == hogar_sel));
 }
 
 
 function calsif(smvm) {
-  console.log("clasif..." + smvm);
-
   if (smvm <0.5) {
   	return "Indigente";
   } else if (smvm >= 0.5 && smvm < 1){
@@ -33,7 +31,6 @@ function calsif(smvm) {
   } else if (smvm > 16){
   	return "Alta";
   }
-
 
 }
 
@@ -78,14 +75,14 @@ function calc() {
 			d.grupo + "</span> con una brecha del SMVM de <span class='grande'>" + d.SMVM  +
 			"</span></h6>" );
 
-			console.log(d.minimo*inflacion, d.maximo*inflacion, "en este grupo: ", d.grupo, d.SMVM);
+			console.log(d.minimo*inflacion, d.maximo*inflacion, "grupo: ", d.grupo, d.SMVM);
 			desierto = 0;
   		}
 			max_salario = d.maximo;
   })
   // Hasta que manden los rangos superiores, se estima
   if (desierto==1) {
-  	console.log((inflacion * max_salario) *factorCorte);
+  	console.log("Fuera de rango. Corte: ", (inflacion * max_salario) *factorCorte);
 
   	if (ingresos < (inflacion * max_salario) *factorCorte) {
 			d3.select("div#resultado").html("");
