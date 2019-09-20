@@ -6,19 +6,16 @@ var factorCorte = 1.1;     // Hasta que manden los rangos superiores, se estima 
 
 var ingresos = 0;
 var g_data;  // todos los datos del .tsv
-var aglomerado_seleccionado="1"; // aglomerado seleccionado
-var hogar_seleccionado = "1";  // habitantes por hogar (1 o mas)
+//var aglomerado_seleccionado="1"; // aglomerado seleccionado
+//var hogar_seleccionado = "1";  // habitantes por hogar (1 o mas)
 var datos_filtrados;     // g_data filtrada segun aglomerado y hogar
 
-function update_aglomerado(index) {
-  console.log("update aglomerado..." + index);
-  datos_filtrados = g_data.filter(d => (d.cod_aglomerado == index && d.hogar == hogar_seleccionado));
+
+function update_data(aglomerado_sel,hogar_sel) {
+  console.log("update data..." + aglomerado_sel + hogar_sel);
+  datos_filtrados = g_data.filter(d => (d.cod_aglomerado == aglomerado_sel && d.hogar == hogar_sel));
 }
 
-function update_hogar(index) {
-  console.log("update hogar..." + index);
-  datos_filtrados = g_data.filter(d => (d.cod_aglomerado == aglomerado_seleccionado && d.hogar == index));
-}
 
 function calsif(smvm) {
   console.log("clasif..." + smvm);
@@ -38,25 +35,9 @@ function calsif(smvm) {
   }
 
 
-  datos_filtrados = g_data.filter(d => (d.cod_aglomerado == index && d.hogar == hogar_seleccionado));
 }
 
 
-
-d3.select("#aglomerado")
-	.on("change", function(d) {
-		aglomerado_seleccionado = this.value;
-		console.log(aglomerado_seleccionado);
-		update_aglomerado(aglomerado_seleccionado);
-	})
-
-
-d3.selectAll('input[type="radio"]')
-	.on("change",function(d){
-		hogar_seleccionado = this.value;
-		console.log(hogar_seleccionado);
-		update_hogar(hogar_seleccionado);
-  	})
 
 
 d3.tsv( "eph.tsv" )
@@ -68,8 +49,6 @@ d3.tsv( "eph.tsv" )
     });
     console.log( data[0] );
     g_data = data;
-    //Carga los datos filtrados por primera vez
-    update_hogar(hogar_seleccionado);
 
 
   })
@@ -80,13 +59,20 @@ d3.tsv( "eph.tsv" )
 
 function calc() {
   var ingresos = +d3.select("#ingresos").property("value");
+  var aglomerado_sel = +d3.select("#aglomerado").property("value");
+  var hogar_sel = +d3.selectAll('input[name="hogar"]:checked').property("value");
+
   var desierto = 1;
   var max_salario = 0;
+
+  update_data(aglomerado_sel,hogar_sel);
+
+
   datos_filtrados.forEach(function(d) {
 	  	if ((inflacion * d.minimo <= ingresos) && (ingresos < inflacion * d.maximo)) {
 			d3.select("div#resultado").html("");
 
-			d3.select("div#resultado").append("p").html( "<h4>Con un ingreso de <span class='grande'>$" + ingresos +
+			d3.select("div#resultado").append("p").html( "<h4>Con un ingreso de <span class='grande'>$" + ingresos.toLocaleString() +
 			"</span> es clase <span class='grande'>" + calsif(d.SMVM) +
 			"</span> </h4> <h6><br>Esta en el grupo decílico <span class='grande'>" +
 			d.grupo + "</span> con una brecha del SMVM de <span class='grande'>" + d.SMVM  +
@@ -103,11 +89,11 @@ function calc() {
 
   	if (ingresos < (inflacion * max_salario) *factorCorte) {
 			d3.select("div#resultado").html("");
-			d3.select("div#resultado").append("p").html( "<h4>Con un ingreso de <span class='grande'>$" + ingresos +
+			d3.select("div#resultado").append("p").html( "<h4>Con un ingreso de <span class='grande'>$" + ingresos.toLocaleString() +
 			"</span> es clase <span class='grande'>" + "Media Alta</span></h4> <h6><br>Supera el grupo decílico máximo</h6>");
   	} else {
 			d3.select("div#resultado").html("");
-			d3.select("div#resultado").append("p").html( "<h4>Con un ingreso de <span class='grande'>$" + ingresos +
+			d3.select("div#resultado").append("p").html( "<h4>Con un ingreso de <span class='grande'>$" + ingresos.toLocaleString() +
 			"</span> es clase <span class='grande'>" + "Alta</span></h4> <h6><br>Supera el grupo decílico máximo</h6>");
 
   	}
