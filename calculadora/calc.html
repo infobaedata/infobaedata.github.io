@@ -5,17 +5,12 @@
   <meta name="viewport" content="width=device-width">
   <title>Calculadora</title>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link href="lee.css" rel="stylesheet" type="text/css" />
   <script src="calc.js"></script>
-
-
 </head>
 <body>
 <div class="container">
@@ -71,21 +66,24 @@
 
 <label for="hogar">Cuantas personas viven en su hogar? </label>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="hogar" id="uno" value="1" checked>
+  <input class="form-check-input" type="radio" name="hogar" id="uno_dos" value="1" checked>
   <label class="form-check-label" for="uno">1 persona</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="hogar" id="dos" value="2">
+  <input class="form-check-input" type="radio" name="hogar" id="uno_dos" value="2">
   <label class="form-check-label" for="dos">2 o más</label>
 </div>
+
 <br>
 <button type="button" class="btn btn-primary" onclick="calc()">Calcular</button>
+
 <br>
 <blockquote class="blockquote text-center">
 <p class="mb-0">
 <div id="resultado"></div>
 </p>
 </blockquote>
+
 <br>
 <small class="text-muted">
 	<div id="referencia"></div>
