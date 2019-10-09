@@ -129,7 +129,7 @@ function calc() {
 
   	d3.select("div#resultado").html("");
 	d3.select("div#resultado").append("p").html( "<h4>Con un ingreso de <span class='grande'>$" + ingresos.toLocaleString() +
-	"</span> es <span class='grande'>" + "Rico</span></h4> <h6><br>Supera el grupo decílico máximo</h6>");
+	"</span> es <span class='grande'>" + "rico</span></h4> <h6><br>Supera el grupo decílico máximo</h6>");
 
   }
   d3.select("div#referencia").html("");
