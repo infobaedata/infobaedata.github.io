@@ -10,15 +10,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link href="lee.css" rel="stylesheet" type="text/css" />
-  <script src="calc.js"></script>
 </head>
 <body>
 <div class="container">
-<h1> Calculadora de Pobreza </h1>
+<h2> Calculadora de Pobreza </h2>
 
 <div class="input-group mb-3">
   <div class="input-group-prepend">
-    <label class="input-group-text" for="aglomerado">Aglomerado</label>
+    <label class="input-group-text" for="aglomerado">¿Dónde vivís?</label>
   </div>
   <select class="custom-select" id="aglomerado">
   <option value="1" selected>CABA</option>
@@ -56,15 +55,7 @@
   </select>
 </div>
 
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Ingreso mensual</span>
-  </div>
-  <input type="number" class="form-control" id="ingresos" aria-label="Cantidad ($)">
-</div>
-
-<label for="hogar">Cuantas personas viven en su hogar? </label>
+<label for="hogar">¿Cuántas personas viven en tu hogar? </label>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="hogar" id="uno_dos" value="1" checked>
   <label class="form-check-label" for="uno">1 persona</label>
@@ -72,6 +63,15 @@
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" name="hogar" id="uno_dos" value="2">
   <label class="form-check-label" for="dos">2 o más</label>
+</div>
+
+
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text"><div id="ingreso-label">Ingreso mensual</div></span>
+  </div>
+  <input type="number" class="form-control" id="ingresos" aria-label="Cantidad ($)">
 </div>
 
 <br>
@@ -91,6 +91,7 @@
 </div>
 
 
+  <script src="calc.js"></script>
 
 </body>
 </html>
