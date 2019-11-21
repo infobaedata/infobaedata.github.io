@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+<!-- extra style -->
+<title>CNV Hechos Relevantes Empresas</title>
+</head>
+<body>
+<div class="container">
+<h1 >CNV Hechos Relevantes Empresas</h1>
+  <input class="form-control" id="entrada" type="text" placeholder="Buscar..">
+	<div id="cont"></div>
+</div>
+</body>
+<script>
+$.get('hechorelevantes.csv', function(data) {
+	// start the table
+	var html = '<div class="table-responsive-sm"> <table class="table table-striped"> <thead><tr><th scope="col">Fecha</th><th scope="col">Entidad</th><th scope="col">Descripcion</th><th scope="col">Documento</th></tr></thead><tbody id="tabla">';
+	// split into lines
+	var rows = data.split("\n");
+	// parse lines
+	rows.forEach( function getvalues(ourrow) {
+
+		// split line into columns
+		var columns = ourrow.split(",");
+
+		if (typeof(columns[1]) != "undefined") {
+			// start a table row
+			html += "<tr>";
+
+			html += "<th scope='row'>" + columns[0] + "</th>";
+			html += "<td>" + columns[1] + "</td>";
+			html += "<td>" + columns[2] + "</td>";
+			html += "<td><a href='" + columns[4] + "' target='_blank'>" + columns[3] + "</a></td>";
+			// close row
+			html += "</tr>";
+		}
+	})
+	// close table
+	html += "</tbody></table></div>";
+	// insert into div
+	$('#cont').append(html);
+});
+
+$(document).ready(function(){
+  $("#entrada").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#tabla tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</html>
